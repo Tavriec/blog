@@ -2,6 +2,17 @@
 <p><%= @article.text %></p>
 <%= link_to 'Back', articles_path %>
 
+<h2>Comments</h2>
+
+<% @article.comments.each do |comment| %>
+
+<h3><%= comment.author %></h3>
+<p><%= comment.body %></p>
+
+<hr/>
+
+<% end %>
+
 <%= form_for([@article, @article.comments.build]) do |f| %>
   <p>
     <%= f.label :author %><br/>
