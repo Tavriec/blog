@@ -22,10 +22,10 @@
   
   <p>
     <%= f.label :body %><br/>
-    <%= f.text_area :body %>
+    <%= f.text_area :body, class: "form-control", placeholder: "Body input", style: "width: 400px" %>
   </p>
   <p>
-    <%= f.submit %>
+    <%= f.submit"Create comment", class: "btn btn-success" %>
   </p>
 
 <% end %>
