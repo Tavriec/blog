@@ -10,8 +10,13 @@
   </head>
 
   <body>
-    <%= link_to 'Sign In', new_user_session_path %> | 
+    <% if user_signed_in? %>
     <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+    <% else %>
+
+    <%= link_to 'Sign In', new_user_session_path %>
+    <% end %>
+    
     <%# <a href="/users/sign_in">Sign In</a> | <a href="/users/sign_out" data-method="delete">Sign Out</a> %>
 
     <p class="notice"><%= notice %></p>
