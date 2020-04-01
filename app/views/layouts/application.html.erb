@@ -18,39 +18,31 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>        
       </button>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <a class="navbar-brand" href="#">Bla-Bla-Blog</a>
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-          <li class="nav-item active">
-            <a class="nav-link", href="/home/index">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link", href="about_path">About</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="new_contacts_path" tabindex="-1" aria-disabled="true">Contacts</a>
-          </li>
+      
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">        
+        <%= link_to "Bla-Bla-Blog", articles_path, class: "navbar-brand" %>
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">          
+          <li><%= link_to "New Article", new_article_path, class: "nav-link active" %></li>
+          <li><%= link_to "Contacts", new_contacts_path, class: "nav-link " %></li>
+          <li><%= link_to "About", about_path, class: "nav-link " %></li>
         </ul>
-          <%# <div class="container container-fluid"> %>
-          <div class="row justify-content-start">
-            <div class="col-auto mr-auto">
-              <% if user_signed_in? %>
-                Hello, <%= current_user.username %> | <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-              <% else %>
-                <%= link_to 'Log In', new_user_session_path %> | <%= link_to 'Sign up', new_user_registration_path %>
-              <% end %>
-          
-        
-              <%# <a href="/users/sign_in">Sign In</a> | <a href="/users/sign_out" data-method="delete">Sign Out</a> %>
-
-        
-            </div>
-            <%# </div> %>
-          </div>
+      </div>         
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <div class="col-auto ml-auto">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <% if user_signed_in? %>              
+              <%= link_to current_user.username, edit_user_registration_path, class: "nav-link active btn btn-link" %>
+              <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "nav-link btn btn-dark" %>
+            <% else %>
+              <%= link_to 'Log In', new_user_session_path, class: "nav-link btn btn-dark btn-sm" %>
+              <%= link_to 'Sign up', new_user_registration_path, class: "nav-link btn btn-dark" %>
+            <% end %>
+          </ul>              
+        </div>
       </div>
     </nav>
     <div class="container container-fluid">
