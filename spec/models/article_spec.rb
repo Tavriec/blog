@@ -7,5 +7,11 @@ describe Article do
   end
   describe "associations" do
     it { should have_many :comments }
-  end 
+  end
+  describe "#subject" do
+    it "return the article title" do
+      article = create(:article, title: 'Lorem Ipsum')
+      expect(article.subject).to eq 'Lorem Ipsum'
+    end
+  end
 end
