@@ -24,7 +24,7 @@
       </button>
       
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">        
-        <%= link_to "Bla-Bla-Blog", articles_path, class: "navbar-brand" %>
+        <%= link_to "My Blog", articles_path, class: "navbar-brand" %>
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">          
           <li><%= link_to "New Article", new_article_path, class: "nav-link active" %></li>
           <li><%= link_to "Contacts", new_contacts_path, class: "nav-link " %></li>
@@ -38,7 +38,7 @@
               <%= link_to current_user.username, edit_user_registration_path, class: "nav-link active btn btn-link" %>
               <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "nav-link btn btn-dark" %>
             <% else %>
-              <%= link_to 'Log In', new_user_session_path, class: "nav-link btn btn-dark btn-sm" %>
+              <%= link_to 'Log In', new_user_session_path, class: "nav-link btn btn-dark" %>
               <%= link_to 'Sign up', new_user_registration_path, class: "nav-link btn btn-dark" %>
             <% end %>
           </ul>              

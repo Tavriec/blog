@@ -5,11 +5,11 @@
 
 <%= form_for :article, url: articles_path do |f| %>
   <p>
-    <%= f.label :title %><br/>
+    <h4><%= f.label :title %></h4>
     <%= f.text_field :title, class: "form-control", placeholder: "Title input", style: "width: 400px" %>    
   </p>
   <p>
-    <%= f.label :text %><br/>
+    <h4><%= f.label :text %></h4>
     <%= f.text_area :text, class: "form-control", placeholder: "Text input", style: "width: 400px" %>
   </p>
   <p>
