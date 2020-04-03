@@ -8,14 +8,21 @@
     <p>
       <ul>
         <% @contact.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
+          <li><i><%= msg %><i></li>
         <% end %>
       </ul>
     </p>
   <% end %>
-  <p>
-    <h4><%= current_user.email %></h4>    
-  </p>
+  <% if user_signed_in? %>
+    <p>
+      <h4><%= current_user.email %></h4>    
+    </p>
+  <% else %>
+    <p>
+      <%= f.label :email %><br/>
+      <%= f.text_field :email, class: "form-control", placeholder: "Email input" %>
+    </p>
+  <% end %>
   <p>
     <%= f.label :message %><br/>
     <%= f.text_area :message, class: "form-control", placeholder: "Message input" %>
