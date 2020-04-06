@@ -15,6 +15,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
+    @article.author = current_user.username
     if @article.save
       redirect_to @article
     else
@@ -37,6 +38,9 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article = Article.find(params[:id])
+      @article.comments.each do |f|
+        f.destroy
+      end
     @article.destroy
 
     redirect_to articles_path

@@ -4,14 +4,16 @@
 
 <h1>List of articles:</h1>
 
-<% @articles.each do |article| %>
+<% @articles.reverse_each do |article| %>
 
 <h2><%= article.title %></h2>
 <p><%= article.text %></p>
-
 <p><%= link_to 'Show', article_path(article), class: 'btn btn-outline-primary col-1' %>
+<% if user_signed_in? && current_user.username == article.author %>
+
   <%= link_to 'Edit', edit_article_path(article), class: "btn btn-outline-success col-1" %>
-  <%= link_to 'Dectroy', article_path(article), method: :delete, data:{ confirm: 'Are you sure?' }, class: "btn btn-outline-danger col-1"%></p>
+  <%= link_to 'Dectroy', article_path(article), method: :delete, data:{ confirm: 'Are you sure?' }, class: "btn btn-outline-danger col-1"%>
+<% end %></p>
 <hr/>
 
 <% end %>
